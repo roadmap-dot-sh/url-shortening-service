@@ -56,11 +56,4 @@ public class UrlController {
         return ResponseEntity.ok(stats);
     }
 
-    @GetMapping("/{shortCode}")
-    public String redirectToOriginalUrl(@PathVariable String shortCode) {
-        UrlResponseDto urlResponse = urlService.getOriginalUrl(shortCode);
-        return "redirect:" + urlResponse.getUrl();
-    }
-
-
 }
