@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: url-shortening-service
+
+  # Database configuration (H2 in-memory database)
+  datasource:
+    url: jdbc:h2:mem:urldb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # JPA configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # H2 console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# Server configuration
+server:
+  port: 4444
+
+# Base URL for short links
+app:
+  base:
+    url: http://localhost:4444/
