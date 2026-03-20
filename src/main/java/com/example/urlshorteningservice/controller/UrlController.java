@@ -50,6 +50,12 @@ public class UrlController {
         return ResponseEntity.ok(response);
     }
 
+    @DeleteMapping("/{shortCode}")
+    public ResponseEntity<Void> deleteShortUrl(@PathVariable String shortCode) {
+        urlService.deleteShortUrl(shortCode);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping("/{shortCode}/stats")
     public ResponseEntity<UrlStatusDto> getUrlStatistics(@PathVariable String shortCode) {
         UrlStatusDto stats = urlService.getUrlStatistics(shortCode);

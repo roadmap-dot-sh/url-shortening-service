@@ -20,7 +20,7 @@ import lombok.Data;
 public class UrlRequestDto {
     @NotBlank(message = "URL is required")
     @Pattern(
-            regexp = "^(https?|ftp)://[^\\\\s/$.?#].[^\\\\s]*$",
+            regexp = "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
             message = "Invalid URL format. URL must start with http://, https://, or ftp://"
     )
     private String url;

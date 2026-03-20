@@ -9,6 +9,7 @@ package com.example.urlshorteningservice.repository;
 
 import com.example.urlshorteningservice.model.Url;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
  *
  * @author Nguyen
  */
+@Repository
 public interface UrlRepository extends JpaRepository<Url, Long> {
     Optional<Url> findByShortCode(String shortCode);
 
