@@ -8,15 +8,25 @@ url: <a href="https://roadmap.sh/projects/url-shortening-service">https://roadma
 - Framework: Spring Boot
 - Database: H2 Database
 
-## Document
+## Requirements
 
-API Endpoints
+The API should allow users to perform the following operations:
+
+- Create a new short URL
+- Retrieve an original URL from a short URL
+- Update an existing short URL
+- Delete an existing short URL
+- Get statistics on the short URL (e.g., number of times accessed)
+
+## API Endpoints
 
 Given below are the details for each API operation.
 
-### 1. Create Short URL: Create a new short URL using the `POST` method
+### 1. Create Short URL
 
-```
+Create a new short URL using the `POST` method
+
+```text
 POST /shorten
 {
     "url": "https://www.example.com/some/long/url"
@@ -26,43 +36,47 @@ POST /shorten
 The endpoint should validate the request body and return a `201 Created` status code with the newly created short URL
 i.e.
 
-```
+```json
 {
-    "id": "1",
-    "url": "https://www.example.com/some/long/url",
-    "shortCode": "abc123",
-    "createdAt": "2021-09-01T12:00:00Z",
-    "updatedAt": "2021-09-01T12:00:00Z"
+  "id": "1",
+  "url": "https://www.example.com/some/long/url",
+  "shortCode": "abc123",
+  "createdAt": "2021-09-01T12:00:00Z",
+  "updatedAt": "2021-09-01T12:00:00Z"
 }
 ```
 
 or a `400 Bad Request` status code with error messages in case of validation errors. Short codes must be unique and
 should be generated randomly.
 
-### 2. Retrieve Original URL: Retrieve the original URL from a short URL using the `GET` method
+### 2. Retrieve Original URL
 
-```
+Retrieve the original URL from a short URL using the `GET` method
+
+```text
 GET /shorten/abc123
 ```
 
 The endpoint should return a `200 OK` status code with the original URL i.e.
 
-```
+```json
 {
-    "id": "1",
-    "url": "https://www.example.com/some/long/url",
-    "shortCode": "abc123",
-    "createdAt": "2021-09-01T12:00:00Z",
-    "updatedAt": "2021-09-01T12:00:00Z"
+  "id": "1",
+  "url": "https://www.example.com/some/long/url",
+  "shortCode": "abc123",
+  "createdAt": "2021-09-01T12:00:00Z",
+  "updatedAt": "2021-09-01T12:00:00Z"
 }
 ```
 
 or a `404 Not Found` status code if the short URL was not found. Your frontend should be responsible for retrieving the
 original URL using the short URL and redirecting the user to the original URL.
 
-### 3. Update Short URL: Update an existing short URL using the `PUT` method
+### 3. Update Short URL
 
-```
+Update an existing short URL using the `PUT` method
+
+```text
 PUT /shorten/abc123
 {
     "url": "https://www.example.com/some/updated/url"
@@ -71,44 +85,48 @@ PUT /shorten/abc123
 
 The endpoint should validate the request body and return a `200 OK` status code with the updated short URL i.e.
 
-```
+```json
 {
-    "id": "1",
-    "url": "https://www.example.com/some/updated/url",
-    "shortCode": "abc123",
-    "createdAt": "2021-09-01T12:00:00Z",
-    "updatedAt": "2021-09-01T12:30:00Z"
+  "id": "1",
+  "url": "https://www.example.com/some/updated/url",
+  "shortCode": "abc123",
+  "createdAt": "2021-09-01T12:00:00Z",
+  "updatedAt": "2021-09-01T12:30:00Z"
 }
 ```
 
 or a `400 Bad Request` status code with error messages in case of validation errors. It should return a `404 Not Found`
 status code if the short URL was not found.
 
-### 4. Delete Short URL: Delete an existing short URL using the `DELETE` method
+### 4. Delete Short URL
 
-```
+Delete an existing short URL using the `DELETE` method
+
+```text
 DELETE /shorten/abc123
 ```
 
 The endpoint should return a `204 No Content` status code if the short URL was successfully deleted or a `404 Not Found`
 status code if the short URL was not found.
 
-### 5. Get URL Statistics: Get statistics for a short URL using the `GET` method
+### 5. Get URL Statistics
 
-```
+Get statistics for a short URL using the `GET` method
+
+```text
 GET /shorten/abc123/stats
 ```
 
 The endpoint should return a `200 OK` status code with the statistics i.e.
 
-```
+```json
 {
-    "id": "1",
-    "url": "https://www.example.com/some/long/url",
-    "shortCode": "abc123",
-    "createdAt": "2021-09-01T12:00:00Z",
-    "updatedAt": "2021-09-01T12:00:00Z",
-    "accessCount": 10
+  "id": "1",
+  "url": "https://www.example.com/some/long/url",
+  "shortCode": "abc123",
+  "createdAt": "2021-09-01T12:00:00Z",
+  "updatedAt": "2021-09-01T12:00:00Z",
+  "accessCount": 10
 }
 ```
 
