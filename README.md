@@ -1,7 +1,9 @@
-# url-shortening-service
+# URL Shortening Service
 
-project
-url: <a href="https://roadmap.sh/projects/url-shortening-service">https://roadmap.sh/projects/url-shortening-service</a>
+Build a URL Shortener API that helps shorten long URLs.
+
+Project
+URL: <a href="https://roadmap.sh/projects/url-shortening-service">https://roadmap.sh/projects/url-shortening-service</a>
 
 ## Tech Stack
 
