@@ -5,6 +5,8 @@ Build a URL Shortener API that helps shorten long URLs.
 Project
 URL: <a href="https://roadmap.sh/projects/url-shortening-service">https://roadmap.sh/projects/url-shortening-service</a>
 
+<img src="https://assets.roadmap.sh/guest/url-shortener-architecture-u72mu.png" alt="">
+
 ## Tech Stack
 
 - Framework: Spring Boot
@@ -133,5 +135,3 @@ The endpoint should return a `200 OK` status code with the statistics i.e.
 ```
 
 or a `404 Not Found` status code if the short URL was not found.
-
----
