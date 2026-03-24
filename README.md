@@ -5,6 +5,10 @@ Build a URL Shortener API that helps shorten long URLs.
 Project
 URL: <a href="https://roadmap.sh/projects/url-shortening-service">https://roadmap.sh/projects/url-shortening-service</a>
 
+You are required to create a simple RESTful API that allows users to shorten long URLs. The API should provide endpoints
+to create, retrieve, update, and delete short URLs. It should also provide statistics on the number of times a short URL
+has been accessed.
+
 <img src="https://assets.roadmap.sh/guest/url-shortener-architecture-u72mu.png" alt="">
 
 ## Tech Stack
